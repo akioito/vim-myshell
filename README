@@ -33,6 +33,15 @@ SSH login configured without password
  http://www.linuxproblem.org/art_9.html
 
 Install:
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'mac':     'make -f make_mac.mak',
+\     'windows': 'make -f make_mingw32.mak',
+\     'cygwin':  'make -f make_cygwin.mak',
+\     'unix':    'make -f make_unix.mak',
+\   },
+\ }   
+NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'akioito/vim-project-files' " Optional
 NeoBundle 'akioito/vim-myshell'
 
