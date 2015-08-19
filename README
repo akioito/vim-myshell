@@ -1,0 +1,44 @@
+vim-myshell
+
+Shell command made easy.
+
+Put cursor on command paragraph and :MyShell 
+Output in myresult.txt, open it from another vim instance or tail -f myresult.txt.
+
+#=============================================================================
+
+# sample.myshell 
+# One blank line between commands, put cursor in any command row and :MyShell
+#------------------------------------------------------------------------------
+# run shell in localhost
+hostcmd: localhost  
+# first test
+pwd
+ls -lh
+brew update
+
+#------------------------------------------------------------------------------
+# run shell in multiple remote hosts
+hostcmd: user@gc-web1, user@gc-web2
+
+# check if updated
+uname -a
+yum check update
+
+#=============================================================================
+Dependency:
+ MacVim compiled with python 2.7 (Not tested with other vim)
+ 
+SSH login configured without password
+ http://www.linuxproblem.org/art_9.html
+
+Install:
+NeoBundle 'akioito/vim-project-files' " Optional
+NeoBundle 'akioito/vim-myshell'
+
+Not perfect, working in progress, make it perfect forking and customizing to your needs.
+Todo: remote host 
+
+Copyright (c) Akio Ito. 
+MIT License. 
+

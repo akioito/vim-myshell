@@ -1,0 +1,6 @@
+# myshell.vim-prj
+# 
+README
+*.myshell
+ftplugin/*.vim
+ftdetect/*.vim

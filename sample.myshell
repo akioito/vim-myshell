@@ -1,0 +1,21 @@
+# sample.myshell 
+# One blank line between commands, put cursor in any command row and :MyShell
+
+#------------------------------------------------------------------------------
+# run shell in localhost
+hostcmd: localhost 
+
+# first test
+pwd
+ls -lh
+uname -a
+# brew update
+
+#------------------------------------------------------------------------------
+# run shell in multiple remote hosts
+hostcmd: user@gc-web1, user@gc-web2
+
+# check if updated
+uname -a
+#yum check update
+
