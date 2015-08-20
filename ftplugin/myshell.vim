@@ -25,7 +25,7 @@ endfunction
 
 function! s:SearchHostCmd()
   let save_cursor = getpos(".")
-  execute "normal! ?hostcmd:\<cr>"
+  execute "normal! ?^hostcmd:\<cr>"
   let xline = getline('.')
   call setpos('.', save_cursor)
   return xline

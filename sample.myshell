@@ -8,6 +8,7 @@ hostcmd: localhost
 # first test
 pwd
 ls -lh
+echo '-------------------------------------------'
 uname -a
 # brew update
 
