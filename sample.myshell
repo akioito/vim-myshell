@@ -14,9 +14,10 @@ uname -a
 
 #------------------------------------------------------------------------------
 # run shell in multiple remote hosts
-hostcmd: user@gc-web1, user@gc-web2
+hostcmd: user@gc-web1, user@gc-web2.asia-east1-c.powerful-tiger-92277
 
 # check if updated
+echo '----------------'
 uname -a
-#yum check update
-
+whoami
+/usr/sbin/nginx -v

@@ -31,9 +31,12 @@ function! s:SearchHostCmd()
   return xline
 endfunction
 
+function! s:BufferAppendMode(flag)
+  let b:quickrun_config = {'outputter/buffer/append': a:flag}
+endfunction
+
 "-----------------------------------------------------------------------------
 function! s:MyShell()
-
 Py << EOF
 import vim
 
@@ -45,19 +48,21 @@ def getHostArg(hostcmd):
   else:
     hosts = [hosts]
   hosts = [x.strip() for x in hosts]
-  print hosts
   return hosts
 
 paragraph = vim.eval('s:GetParagraph()')
 hostcmd   = vim.eval('s:SearchHostCmd()')
 vim.command('redraw!')
-print('hostcmd=%s' % hostcmd)
-x = getHostArg(hostcmd)
-# Todo: local and remote hosts...
-xcmd = 'QuickRun sh -src "%s"' % paragraph
-# print xcmd
-vim.command(xcmd) 
+hosts = getHostArg(hostcmd)
 
+vim.eval('s:BufferAppendMode(0)')
+for host in hosts:
+  if host == 'localhost':
+    xcmd = 'QuickRun sh -src "%s"' % paragraph
+  else:
+    xcmd = 'QuickRun sh -src "ssh %s \'%s\'"' % (host, paragraph) 
+  vim.command(xcmd) 
+  vim.eval('s:BufferAppendMode(1)')
 print(' ')
 EOF
 endfunction
